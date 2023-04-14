@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: "RP Flask REST API"
+  description: "An API to simulate a game of war"
+  version: "1.0.0"
+
+servers:
+  - url: "/"
+
+paths:
+  /player/{player_name}:
+    get:
+      operationId: src.wins.read_one
+      tags:
+        - Wins
+      summary: Return a player with a given name and their wins
+      description: Return a player with a given name and their wins
+      parameters:
+        - name: player_name
+          in: path
+          description: Player Name
+          required: true
+          schema:
+            type: string
+            format: "^[a-zA-Z0-9 ]*$"
+      responses:
+        "200":
+          description: Return a player with a given name and their wins
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WinsResponse"
+            
+  /get_logs/{game_id}:
+    get:
+      operationId: src.game.get_game_logs
+      parameters:
+        - name: game_id
+          in: path
+          description: Game ID
+          required: true
+          schema:
+            type: string
+            format: "^[a-zA-Z0-9]*$"
+      summary: "Gets the logs of the game with the particular ID"
+      description: "Gets the logs of the game with the particular ID"
+      responses:
+        "200":
+          description: "Successfully showed game logs"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameLogsResponse'
+  /play_game:
+    get:
+      operationId: src.game.start_new_game
+      parameters:
+        - name: player1
+          in: query
+          schema:
+            type: string
+            format: "^[a-zA-Z0-9 ]*$"
+          example: 'Alice'
+        - name: player2
+          in: query
+          schema:
+            type: string
+            format: "^[a-zA-Z0-9 ]*$"
+          example: 'Bob'
+      summary: "Starts a game of War"
+      description: "Starts a game"
+      responses:
+        "200":
+          description: "Successfully started a game"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameResponse'
+
+
+components:
+  schemas:
+    WinsResponse:
+      type: object
+      properties:
+        playerName:
+          type: string
+          description: Name of Player
+        wins:
+          type: integer
+          description: Number of wins
+    GameLogsResponse:
+      type: object
+      properties:
+        logs:
+          type: string
+          description: logs
+    GameResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the game

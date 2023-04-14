@@ -1,0 +1,7 @@
+Flask==2.2.3
+connexion[swagger-ui]==2.14.2
+coverage==7.2.3
+pytest==7.3.0
+flask-marshmallow==0.14.0
+flask-sqlalchemy==3.0.3
+marshmallow-sqlalchemy==0.29.0

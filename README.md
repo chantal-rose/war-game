@@ -11,8 +11,8 @@ This application is written in Python and is created using the web framework - [
 ### Docker container
 Pull the docker image:
 ```
-docker pull chantsdgr/war/war-game:v1
-docker run -v $(pwd)/db:/app/db -d -p 8000:8000 chantsdgr/war/war-game:v1
+docker pull chantsdgr/war:v1
+docker run -v $(pwd)/db:/app/db -d -p 8000:8000 chantsdgr/war:v1
 ```
 Go to http://localhost:8000/play_game?player1=Alice&player2=Bob
 

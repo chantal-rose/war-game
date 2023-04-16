@@ -37,6 +37,19 @@ You can also see the leaderboard at http://localhost:8000/ .
 
 There is DB persistence implemented by mounting the db/ directory to the docker container. So if the container is stopped, the data will be retained and can be viewed on the leaderboard once the new container comes back up.
 
+**Note:** If you clicked on any of the links with {} in them by mistake, without replacing them with your own inputs, you would have got the following error:
+
+```
+{
+  "detail": "'{game_id}' does not match '^[a-zA-Z0-9]*$'\n\nFailed validating 'pattern' in schema:\n    {'pattern': '^[a-zA-Z0-9]*$', 'type': 'string'}\n\nOn instance:\n    '{game_id}'",
+  "status": 400,
+  "title": "Bad Request",
+  "type": "about:blank"
+}
+```
+This is the beauty of connexion and OpenAPI specification! It handles request and parameter validation on its own, and you can build your own custom validators on top of the automatic existing validation.
+
+
 ### Development mode
 
 To run the application in development mode, clone this repository and in the root directory, run:

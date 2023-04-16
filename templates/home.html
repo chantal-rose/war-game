@@ -1,0 +1,46 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>War Leaderboard</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    
+</head>
+<body>
+    <section id="leaderboard--container" class="leaderboard">
+        <div class="board-nav">
+          <div class="board-nav--col board-title">
+            <h1>Standings</h1>
+          </div>
+        </div>
+        <div class="board-nav--results">
+            <div class="board-nav--column">
+              <label>Rank</label>
+            </div>
+            <div class="board-nav--column">
+              <label>Player Name</label>
+            </div>
+            <div class="board-nav--column">
+              <label>Wins</label>
+            </div>
+          </div>
+        {% for player in players %}
+            <div class="board-nav--results-players">
+                <div class="column">
+                    <span class="results-rank"><span class="positions">{{ loop.index }}</span></span>
+                </div>
+                <div class="column">
+                    <span class="results-player">{{ player.playerName }}</span>
+                </div>
+                <div class="column">
+                    <span class="results-wins">{{ player.wins }}</span>
+                </div>
+            </div>
+        {% endfor %}
+        
+
+    </section>
+</body>
+</html>

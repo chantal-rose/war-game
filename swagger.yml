@@ -18,11 +18,11 @@ paths:
       parameters:
         - name: player_name
           in: path
-          description: Player Name
+          description: Name of player (name should be alphanumeric)
           required: true
           schema:
             type: string
-            format: "^[a-zA-Z0-9 ]*$"
+            pattern: "^[a-zA-Z0-9 ]*$"
       responses:
         "200":
           description: Return a player with a given name and their wins
@@ -34,6 +34,8 @@ paths:
   /get_logs/{game_id}:
     get:
       operationId: src.game.get_game_logs
+      tags:
+      - Game Logs
       parameters:
         - name: game_id
           in: path
@@ -41,7 +43,7 @@ paths:
           required: true
           schema:
             type: string
-            format: "^[a-zA-Z0-9]*$"
+            pattern: "^[a-zA-Z0-9]*$"
       summary: "Gets the logs of the game with the particular ID"
       description: "Gets the logs of the game with the particular ID"
       responses:
@@ -54,19 +56,25 @@ paths:
   /play_game:
     get:
       operationId: src.game.start_new_game
+      tags:
+      - New Game
       parameters:
         - name: player1
           in: query
+          description: Name of player 1 (name should be alphanumeric)
           schema:
             type: string
-            format: "^[a-zA-Z0-9 ]*$"
+            pattern: "^[a-zA-Z0-9 ]*$"
           example: 'Alice'
+          required: true
         - name: player2
           in: query
+          description: Name of player 1 (name should be alphanumeric)
           schema:
             type: string
-            format: "^[a-zA-Z0-9 ]*$"
+            pattern: "^[a-zA-Z0-9 ]*$"
           example: 'Bob'
+          required: true
       summary: "Starts a game of War"
       description: "Starts a game"
       responses:

@@ -29,7 +29,7 @@ def update_db(player_name: str) -> win_schema:
         return win_schema.dump(existing_person), 201
         
 
-def read_one(player_name: str) -> Union[win_schema, dict]:
+def read_one(player_name: str):
     """Reads the entry of the player from the database.
     
     If the player does not exist in the database, it returns an entry with 0 wins.

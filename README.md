@@ -36,6 +36,13 @@ http://localhost:8000/player/{player_name}.
 You can also see the leaderboard at http://localhost:8000/ .
 
 There is DB persistence implemented by mounting the db/ directory to the docker container. So if the container is stopped, the data will be retained and can be viewed on the leaderboard once the new container comes back up.
+To test this, try running:
+```
+docker ps # Copy the container ID
+docker stop <container-id>
+docker start <container-id>
+```
+The leaderboard will retain the history of wins for every user.
 
 **Note:** If you clicked on any of the links with {} in them by mistake, without replacing them with your own inputs, you would have got the following error:
 

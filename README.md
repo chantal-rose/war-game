@@ -8,6 +8,27 @@ This application is written in Python and is created using the web framework - [
 
 ## Running the application
 
+### Cloud Deployment
+
+1) Start a new game as follows (Replace the names of the players):
+http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1={player1}&player2={player2}
+
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1=Max&player2=Alonso
+
+2) View the logs of the game (Replace the game ID at the end of the URL with the one from the response above):
+http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/{game_id}
+
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/de807be23a4e448e8720d6a85e19c6ee
+
+3) Get history of wins of one player (Replace the player_name in the URL):
+http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/{player_name}
+
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/Max
+
+4) See leaderboard
+http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com
+
+
 ### Docker container
 Pull the docker image:
 ```
@@ -24,7 +45,7 @@ http://localhost:8000/player/{player_name}.
 
 You can also see the leaderboard at http://localhost:8000/ .
 
-There is DB persistence by mounting the db/ directory to the docker container. So if the container is stopped, the data will be retained and can be viewed on the leaderboard once the new container comes back up.
+There is DB persistence implemented by mounting the db/ directory to the docker container. So if the container is stopped, the data will be retained and can be viewed on the leaderboard once the new container comes back up.
 
 ### Development mode
 
@@ -56,4 +77,8 @@ coverage report -m
 ![Coverage Report](images/coverage.png?raw=true "Coverage Report")
 
 
+## Future Scope
 
+If given more time, I would have kept the application separate from the database in the cloud deployment. This would have enabled scaling up the application pods when needed and have them point to the same database in the kubernetes cluster. I would have further implemented database persistence using persistent volumes and volume claims in kubernetes.
+
+I would have also implemented a UI with a websocket connection that could show the game being played in real time without having to retrieve the logs after the game is already over.

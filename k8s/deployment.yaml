@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: war-deployment
+  labels:
+    app: war
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: war
+  template:
+    metadata:
+      labels:
+        app: war
+    spec:
+      containers:
+      - name: war
+        image: chantsdgr/war:v6
+        ports:
+        - containerPort: 8000

@@ -1,6 +1,6 @@
 venv/
 *.pyc
-*.log
+*.log*
 *.db
 .coverage
 .DS_Store

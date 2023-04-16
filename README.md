@@ -10,23 +10,16 @@ This application is written in Python and is created using the web framework - [
 
 ### Cloud Deployment
 
-1) Start a new game as follows (Replace the names of the players):
-  http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1={player1}&player2={player2}
+1) Start a new game as follows (Replace the names of the players): http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1={player1}&player2={player2}
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1=Max&player2=Alonso
 
-  For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1=Max&player2=Alonso
+2) View the logs of the game (Replace the game ID at the end of the URL with the one from the response above): http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/{game_id}
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/de807be23a4e448e8720d6a85e19c6ee
 
-2) View the logs of the game (Replace the game ID at the end of the URL with the one from the response above):
-  http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/{game_id}
+3) Get history of wins of one player (Replace the player_name in the URL): http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/{player_name}
+For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/Max
 
-  For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/get_logs/de807be23a4e448e8720d6a85e19c6ee
-
-3) Get history of wins of one player (Replace the player_name in the URL):
-  http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/{player_name}
-
-  For example: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/Max
-
-4) See leaderboard
-  http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com
+4) See leaderboard: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com
 
 
 ### Docker container

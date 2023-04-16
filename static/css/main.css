@@ -1,0 +1,79 @@
+
+* {
+  margin:0;
+  padding:0;
+  font-family:Helvetica, Arial, sans-serif;
+}
+body {
+  background:#232323;
+}
+
+  #leaderboard--container {
+    padding:50px;
+  }
+  .board-nav {
+    display:flex;
+    flex-wrap:wrap;
+    align-items: center;
+    background:#2C88D8;
+    padding:10px 25px;
+    border-radius:10px;
+    border:1px solid #2C608D;
+  }
+  .board-title {
+    flex:2;
+  }
+  
+  .board-nav--col:nth-child(n+2) {
+    flex:1;
+  }
+  .board-nav h1 {
+      margin-bottom:0px;
+      line-height:1;
+  }
+  .board-nav h1 {
+      font-size:20px;
+      color:#2C608D!important;
+      font-weight:bold;
+      text-transform:uppercase;
+  }
+  .board-nav--results, .board-nav--results-players {
+      display:flex;
+      flex-wrap:wrap;
+      padding:15px 25px;
+  }
+  .board-nav--results label {
+      color:#747474;
+      font-size:18px;
+      font-weight:bold;
+  }
+  .board-nav--column, .column {
+      flex:1;
+  }
+  .board-nav--results {
+      margin:5px 0px;
+  }
+  .board-nav--results-players {
+      background:#1d1d1d;
+      border-radius:10px;
+      margin:5px 0px;
+      align-items:center;
+  }
+  .leaderboard .board-nav--results-players:nth-of-type(1) {
+      color:#2C608D;
+  }
+  .column {
+      font-size:18px;
+      color:#747474;
+      font-weight:light;
+  }
+  .results-rank {
+      display:block;
+      background:#2C608D;
+      color:white!important;
+      font-weight:bold;
+      width:34px;
+      height:34px;
+      text-align:center;
+      border-radius:50%;
+  }

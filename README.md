@@ -17,7 +17,7 @@ This application is written in Python and is created using the web framework - [
 3) Get history of wins of one player (Replace the player_name in the URL): http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/player/Max
 
 4) See leaderboard: http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com
-
+![Leaderboard](images/Leaderboard.png?raw=true "Leaderboard")
 
 ### Docker container
 Pull the docker image:

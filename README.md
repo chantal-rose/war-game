@@ -8,7 +8,7 @@ This application is written in Python and is created using the web framework - [
 
 ## Running the application
 
-### Cloud Deployment
+### Cloud Deployment (Not currently running to save costs. Will be brought up during interview)
 
 1) Start a new game as follows (Replace the names of the players): http://k8s-default-warservi-1a478bc22e-2335871b1cc804e4.elb.eu-central-1.amazonaws.com/play_game?player1=Max&player2=Alonso
 
